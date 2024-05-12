@@ -1,0 +1,16 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: external-dns
+  namespace: default
+spec:
+  releaseName: external-dns
+  chart:
+    repository: https://charts.bitnami.com/bitnami
+    name: external-dns
+  values:
+    provider: cloudflare
+    cloudflare:
+      email: loicsteve27@gmail.com
+      secretName: cloudflare-api-token-secret
+      proxied: false
